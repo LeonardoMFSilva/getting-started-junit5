@@ -36,7 +36,26 @@ public class ClinicMain {
 
     private static void performPatientEntry(Scanner scanner){
         scanner.nextLine();
-        System.out.println();
+        System.out.println("\n\nPlease Enter Appointment Info:");
+        System.out.println(" Patient Last Name");
+        String lastName = scanner.nextLine();
+        System.out.println(" Patient First Name");
+        String firstName = scanner.nextLine();
+        System.out.println(" Appointment Date (M/d/yyy h:m a): ");
+        String when = scanner.nextLine();
+        System.out.println(" Doctor Last Name");
+        String doc = scanner.nextLine();
+        try {
+            calendar.addAppointment(firstName, lastName, doc, when);
+        } catch (Throwable t){
+            System.out.println("Error! " + t.getMessage());
+            return;
+        }
+        System.out.println("Patient entered successfully.\n\n");
     }
 
+    private static void performAllAppointments() throws Throwable{
+        System.out.println("\n\nAll Appointments in System:")
+        for (PatientAppointment appointment : calendar.get);
+    }
 }
