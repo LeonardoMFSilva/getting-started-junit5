@@ -19,7 +19,7 @@ class ClinicCalendarShould {
         PatientAppointment enteredAppt = appointments.get(0);
         assertEquals("Jim", enteredAppt.getPatientFirstName());
         assertEquals("Weaver", enteredAppt.getPatientLastName());
-        assertEquals(Doctor.avery, enteredAppt.getDoctor());
+        assertEquals(Doctor.avery, enteredAppt.getDoctor());// can also be used assertSame
         assertEquals("9/1/2018 02:00 PM", enteredAppt.getAppointmentDateTime().format(DateTimeFormatter.ofPattern("M/d/yyyy hh:mm a")));
     }
 

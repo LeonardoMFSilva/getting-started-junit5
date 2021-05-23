@@ -20,7 +20,7 @@ public class ClinicCalendar {
             localDateTime = LocalDateTime.parse(dateTime.toUpperCase(), DateTimeFormatter.ofPattern("M/d/yyy h:mm a",
                     Locale.US));
         } catch (Throwable t){
-            throw new RuntimeException("Unable to create date time from: [" + dateTime.toUpperCase() + "], please" +
+            throw new RuntimeException("Unable to create date time from: [" + dateTime.toUpperCase() + "], please " +
                     "enter with format [M/d/yyy h:mm a]");
         }
 
