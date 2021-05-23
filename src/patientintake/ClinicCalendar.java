@@ -1,7 +1,10 @@
 package patientintake;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 public class ClinicCalendar {
     private List<PatientAppointment> appointments;
@@ -11,7 +14,22 @@ public class ClinicCalendar {
     }
 
     public void addAppointment(String patientFirstName, String patientLastName, String doctorKey, String dateTime){
-        Doctor doc = Doctor.value
+        Doctor doc = Doctor.valueOf(doctorKey.toLowerCase());
+        LocalDateTime localDateTime;
+        try {
+            localDateTime = LocalDateTime.parse(dateTime.toUpperCase(), DateTimeFormatter.ofPattern("M/d/yyy h:mm a",
+                    Locale.US));
+        } catch (Throwable t){
+            throw new RuntimeException("Unable to create date time from: [" + dateTime.toUpperCase() + "], please" +
+                    "enter with format [M/d/yyy h:mm a]");
+        }
+
+        PatientAppointment appointment = new PatientAppointment(patientFirstName, patientLastName, localDateTime, doc);
+        appointments.add(appointment);
+    }
+
+    public List<PatientAppointment> getAppointments(){
+        return this.appointments;
     }
 
 }

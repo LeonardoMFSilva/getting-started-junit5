@@ -1,5 +1,6 @@
 package patientintake;
 
+import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
 public class ClinicMain {
@@ -56,6 +57,12 @@ public class ClinicMain {
 
     private static void performAllAppointments() throws Throwable{
         System.out.println("\n\nAll Appointments in System:")
-        for (PatientAppointment appointment : calendar.get);
+        for (PatientAppointment appointment : calendar.getAppoitments()) {
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("M/d/yyy hh:mm a");
+            String apptTime = formatter.format(appointment.getAppointmentDateTime());
+            System.out.println(String.format("%s %s, %s\t\tDoctor: %s", apptTime, apptTime.getPatientLastName,
+                    apptTime.getPatientFirstName(), appointment.getDoctor().getName()));
+        }
+        System.out.println("\nPress any key to continue...");
     }
 }
