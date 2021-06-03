@@ -3,16 +3,15 @@ package patientintake;
 public enum Doctor {
     avery("Ralph Avery"),
     johnson("Beth Johnson"),
-    murphy("Pat Murphy"),
-    silva("Leonardo Silva");
+    murphy("Pat Murpy");
 
     private String name;
 
-    Doctor(String name ){
+    Doctor(String name) {
         this.name = name;
     }
 
-    public String getName(){
+    public String getName() {
         return name;
     }
 }
